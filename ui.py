@@ -4,6 +4,15 @@ from config import load_css
 from profile_agent import Me
 
 
+def create_theme():
+    return gr.themes.Base().set(
+        body_background_fill="#05070a",
+        body_text_color="#d3c8ce",
+        body_background_fill_dark="#05070a",
+        body_text_color_dark="#d3c8ce",
+    )
+
+
 def create_demo():
     me = Me()
 
@@ -30,7 +39,7 @@ def create_demo():
         }
     ]
 
-    with gr.Blocks(css=load_css(), title="Fey Career Archive") as demo:
+    with gr.Blocks(css=load_css(), theme=create_theme(), title="Fey Career Archive") as demo:
         with gr.Column(elem_id="fey-app", elem_classes=["app-shell"]):
             gr.HTML(
                 """

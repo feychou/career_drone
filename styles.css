@@ -5,33 +5,64 @@
 }
 
 :root,
+body,
 .gradio-container {
-  --bg: #05070a;
-  --panel: rgba(12, 15, 20, 0.82);
-  --panel-soft: rgba(20, 18, 26, 0.72);
-  --line: rgba(255, 95, 151, 0.58);
-  --line-soft: rgba(255, 95, 151, 0.22);
-  --pink: #ff5f97;
-  --pink-hot: #ff86b6;
-  --pink-pale: #ffd0df;
-  --text: #d3c8ce;
-  --muted: #8f858d;
-  --faint: #504950;
-  --green: #77d99a;
+  color-scheme: dark;
+  --fey-bg: #05070a;
+  --fey-panel: rgba(12, 15, 20, 0.82);
+  --fey-panel-soft: rgba(20, 18, 26, 0.72);
+  --fey-line: rgba(255, 95, 151, 0.58);
+  --fey-line-soft: rgba(255, 95, 151, 0.22);
+  --fey-pink: #ff5f97;
+  --fey-pink-hot: #ff86b6;
+  --fey-pink-pale: #ffd0df;
+  --fey-text: #d3c8ce;
+  --fey-muted: #8f858d;
+  --fey-faint: #504950;
+  --fey-green: #77d99a;
+  --body-background-fill: var(--fey-bg) !important;
+  --body-background-fill-dark: var(--fey-bg) !important;
+  --body-text-color: var(--fey-text) !important;
+  --body-text-color-dark: var(--fey-text) !important;
+  --background-fill-primary: transparent !important;
+  --background-fill-secondary: rgba(8, 6, 11, 0.64) !important;
+  --bg-color: rgba(10, 7, 12, 0.7) !important;
+  --block-background-fill: transparent !important;
+  --block-border-color: var(--fey-line-soft) !important;
+  --block-label-background-fill: rgba(5, 7, 10, 0.72) !important;
+  --block-label-text-color: var(--fey-pink-hot) !important;
+  --border-color-accent: rgba(255, 95, 151, 0.5) !important;
+  --border-color-accent-subdued: rgba(255, 95, 151, 0.42) !important;
+  --border-color-primary: rgba(255, 95, 151, 0.24) !important;
+  --button-secondary-border-color: rgba(255, 95, 151, 0.64) !important;
+  --button-secondary-border-color-hover: rgba(255, 208, 223, 0.9) !important;
+  --button-secondary-text-color: var(--fey-pink-hot) !important;
+  --color-accent: var(--fey-pink-hot) !important;
+  --color-accent-soft: rgba(255, 95, 151, 0.1) !important;
+  --input-background-fill: transparent !important;
+  --input-border-color: rgba(255, 95, 151, 0.58) !important;
+  --input-placeholder-color: rgba(143, 133, 141, 0.86) !important;
 }
 
 html,
 body,
-.gradio-container {
-  min-height: 100%;
+.gradio-container,
+.gradio-container > main {
+  min-height: 0 !important;
   background:
     linear-gradient(rgba(255, 255, 255, 0.018) 50%, rgba(0, 0, 0, 0.06) 50%),
     radial-gradient(circle at 16% 8%, rgba(255, 95, 151, 0.14), transparent 31rem),
-    var(--bg) !important;
+    var(--fey-bg) !important;
   background-size: 100% 4px, auto, auto !important;
-  color: var(--text) !important;
+  color: var(--fey-text) !important;
   font-family: "Courier New", monospace !important;
   letter-spacing: 0;
+}
+
+body,
+.gradio-container,
+.gradio-container > main {
+  flex-grow: 0 !important;
 }
 
 .gradio-container {
@@ -40,13 +71,13 @@ body,
 }
 
 .gradio-container a {
-  color: var(--pink-hot) !important;
+  color: var(--fey-pink-hot) !important;
   text-decoration: none !important;
 }
 
 .gradio-container a:hover,
 .gradio-container a:focus {
-  color: var(--pink-pale) !important;
+  color: var(--fey-pink-pale) !important;
   text-shadow: 0 0 10px rgba(255, 134, 182, 0.65);
 }
 
@@ -56,8 +87,9 @@ body,
 
 .app-shell {
   box-sizing: border-box;
+  flex-grow: 0 !important;
   width: min(100%, 1120px);
-  min-height: 100vh;
+  min-height: min(100vh, 860px);
   margin: 0 auto;
   padding: 18px;
   gap: 12px !important;
@@ -82,7 +114,7 @@ body,
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  color: var(--pink);
+  color: var(--fey-pink);
   font-family: "ElectroShackle", "Courier New", monospace;
   font-size: 13px;
   line-height: 1.4;
@@ -91,18 +123,18 @@ body,
 
 .status-footer {
   padding-top: 10px;
-  border-top: 1px solid var(--line-soft);
+  border-top: 1px solid var(--fey-line-soft);
 }
 
 .archive-panel {
   position: relative;
   overflow: hidden;
   gap: 0 !important;
-  border: 1px solid var(--line);
+  border: 1px solid var(--fey-line);
   border-radius: 10px;
   background:
     linear-gradient(rgba(255, 255, 255, 0.018) 50%, rgba(0, 0, 0, 0.04) 50%),
-    var(--panel) !important;
+    var(--fey-panel) !important;
   background-size: 100% 4px, auto !important;
   box-shadow:
     0 0 0 1px rgba(255, 134, 182, 0.04),
@@ -137,7 +169,7 @@ body,
 .archive-panel-header span {
   position: relative;
   z-index: 1;
-  color: var(--pink);
+  color: var(--fey-pink);
   font-family: "ElectroShackle", "Courier New", monospace;
   font-size: 12px;
   line-height: 1.2;
@@ -167,7 +199,7 @@ body,
 }
 
 .terminal-line-ready {
-  color: var(--pink-pale);
+  color: var(--fey-pink-pale);
   font-weight: 700;
   text-shadow:
     0 0 11px rgba(255, 134, 182, 0.42),
@@ -276,7 +308,7 @@ body,
 #career-chatbot .icon-button-wrapper,
 #career-chatbot .icon-button,
 #career-chatbot button {
-  color: var(--pink-hot) !important;
+  color: var(--fey-pink-hot) !important;
   border-color: transparent !important;
   background: transparent !important;
   box-shadow: none !important;
@@ -284,8 +316,8 @@ body,
 
 #career-chatbot *::selection,
 #career-input textarea::selection {
-  color: var(--bg);
-  background: var(--pink-pale);
+  color: var(--fey-bg);
+  background: var(--fey-pink-pale);
 }
 
 .prompt-row {
@@ -332,9 +364,9 @@ body,
   border: 0 !important;
   border-bottom: 1px solid rgba(255, 95, 151, 0.58) !important;
   border-radius: 0 !important;
-  color: var(--pink-pale) !important;
+  color: var(--fey-pink-pale) !important;
   background: transparent !important;
-  caret-color: var(--pink-hot);
+  caret-color: var(--fey-pink-hot);
   font-family: "Courier New", monospace !important;
   font-size: 14px !important;
   line-height: 1.35 !important;
@@ -357,7 +389,7 @@ body,
   min-height: 42px;
   border: 1px solid rgba(255, 95, 151, 0.64) !important;
   border-radius: 6px !important;
-  color: var(--pink-hot) !important;
+  color: var(--fey-pink-hot) !important;
   background:
     linear-gradient(rgba(255, 255, 255, 0.024) 50%, rgba(0, 0, 0, 0.035) 50%),
     rgba(10, 7, 12, 0.7) !important;
@@ -379,7 +411,7 @@ body,
 #career-submit:hover,
 #career-submit:focus-visible {
   border-color: rgba(255, 208, 223, 0.9) !important;
-  color: var(--pink-pale) !important;
+  color: var(--fey-pink-pale) !important;
   box-shadow:
     0 0 0 1px rgba(255, 208, 223, 0.12),
     0 0 14px rgba(255, 95, 151, 0.22),
