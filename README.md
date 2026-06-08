@@ -1,3 +1,10 @@
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+uv run app.py
+```
+
 ---
 title: career_drone
 app_file: app.py
